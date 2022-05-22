@@ -148,7 +148,7 @@ const Index = () => {
     setWordEntered(searchWord);
     // console.log(searchWord);
     const newFilter = data.filter((value) => {
-      return value.name.toLowerCase().includes(searchWord.toLowerCase());
+      return value.id.name.toLowerCase().includes(searchWord.toLowerCase());
     });
 
     if (searchWord === "") {
@@ -158,7 +158,7 @@ const Index = () => {
     }
   };
 
-  console.log("object", data);
+  // console.log("object", data.id);
 
   return (
     <>
@@ -169,6 +169,7 @@ const Index = () => {
           height: "auto",
           position: "relative",
           zIndex: "1",
+          color: "black",
         }}
       >
         <Link href="/">
@@ -205,25 +206,25 @@ const Index = () => {
             <TableHead>
               <TableRow>
                 <StyledTableCell style={{ fontWeight: 900, fontSize: 16 }}>
-                  Foto Produk
+                  nama
                 </StyledTableCell>
                 <StyledTableCell
                   style={{ fontWeight: 900, fontSize: 16 }}
                   align="right"
                 >
-                  Nama Produk
+                  address
                 </StyledTableCell>
                 <StyledTableCell
                   style={{ fontWeight: 900, fontSize: 16 }}
                   align="right"
                 >
-                  Harga Jual
+                  cell
                 </StyledTableCell>
                 <StyledTableCell
                   style={{ fontWeight: 900, fontSize: 16 }}
                   align="right"
                 >
-                  Stok
+                  dob
                 </StyledTableCell>
                 <StyledTableCell
                   style={{
@@ -231,7 +232,18 @@ const Index = () => {
                     fontSize: 16,
                     textAlign: "center",
                   }}
-                ></StyledTableCell>
+                >
+                  email
+                </StyledTableCell>
+                <StyledTableCell
+                  style={{
+                    fontWeight: 900,
+                    fontSize: 16,
+                    textAlign: "center",
+                  }}
+                >
+                  pic
+                </StyledTableCell>
               </TableRow>
             </TableHead>
 
@@ -242,10 +254,10 @@ const Index = () => {
                     page * rowsPerPage + rowsPerPage
                   )
                 : filteredData
-              ).map((item, value) => (
-                <TableRow key={value}>
+              ).map((item) => (
+                <TableRow key={item.id.value}>
                   <TableCell style={{ width: 160 }} align="right">
-                    {item.name}
+                    {item.id.name}
                   </TableCell>
                   <TableCell style={{ width: 160 }} align="right">
                     {item.email}
